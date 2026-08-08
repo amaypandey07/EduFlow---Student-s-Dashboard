@@ -12,6 +12,9 @@
   <link rel="stylesheet" href="css/reset.css" />
   <link rel="stylesheet" href="css/variables.css" />
   <link rel="stylesheet" href="css/layout.css" />
+  <link rel="stylesheet" href="css/components.css" />
+  <link rel="stylesheet" href="css/dashboard.css" />
+  <!-- responsive.css is added in Commit 8 (responsive polish phase) -->
 </head>
 <body>
 
@@ -80,19 +83,122 @@
       </header>
 
       <main class="main-content">
-        <!-- Stat cards, attendance ring, academic performance, assignments
-             preview, timetable preview, and recent activity are added in
-             Commit 3. This commit only establishes the sidebar + header
-             shell and confirms navigation/collapse behavior works. -->
-        <p style="color: var(--text-secondary);">
-          Dashboard content coming in the next commit.
-        </p>
+
+        <!-- STAT CARDS -->
+        <section class="grid grid-cols-4" style="margin-bottom: var(--space-6);">
+          <div class="card stat-card animate-in" style="animation-delay: 0ms">
+            <div class="stat-card-icon" style="background: var(--primary-light); color: var(--primary);">
+              <i class="fa-solid fa-calendar-check"></i>
+            </div>
+            <div class="stat-card-value" data-counter data-target="86" data-suffix="%">0%</div>
+            <div class="stat-card-label">Overall Attendance</div>
+            <span class="stat-card-trend trend-up"><i class="fa-solid fa-arrow-up"></i> 2% this month</span>
+          </div>
+
+          <div class="card stat-card animate-in" style="animation-delay: 80ms">
+            <div class="stat-card-icon" style="background: var(--success-light); color: var(--success);">
+              <i class="fa-solid fa-star"></i>
+            </div>
+            <div class="stat-card-value" data-counter data-target="8.4" data-decimal="1">0</div>
+            <div class="stat-card-label">Current CGPA</div>
+            <span class="stat-card-trend trend-up"><i class="fa-solid fa-arrow-up"></i> 0.2 this sem</span>
+          </div>
+
+          <div class="card stat-card animate-in" style="animation-delay: 160ms">
+            <div class="stat-card-icon" style="background: var(--warning-light); color: var(--warning);">
+              <i class="fa-solid fa-clipboard-list"></i>
+            </div>
+            <div class="stat-card-value" data-counter data-target="5" data-suffix="">0</div>
+            <div class="stat-card-label">Pending Assignments</div>
+            <span class="badge badge-warning">2 due this week</span>
+          </div>
+
+          <div class="card stat-card animate-in" style="animation-delay: 240ms">
+            <div class="stat-card-icon" style="background: var(--danger-light); color: var(--danger);">
+              <i class="fa-solid fa-file-pen"></i>
+            </div>
+            <div class="stat-card-value" data-counter data-target="3" data-suffix="">0</div>
+            <div class="stat-card-label">Upcoming Exams</div>
+            <span class="badge badge-neutral">Next: 15 Aug</span>
+          </div>
+        </section>
+
+        <div class="dashboard-grid">
+
+          <!-- LEFT COLUMN -->
+          <div class="dashboard-col-main">
+
+            <section class="card animate-in" style="margin-bottom: var(--space-5);">
+              <div class="card-header">
+                <span class="card-title">Academic Performance</span>
+                <a href="pages/academics.html" class="btn btn-secondary btn-sm">View all</a>
+              </div>
+              <div id="academic-performance-list"></div>
+            </section>
+
+            <section class="card animate-in" style="margin-bottom: var(--space-5);">
+              <div class="card-header">
+                <span class="card-title">Upcoming Assignments</span>
+                <a href="pages/assignments.html" class="btn btn-secondary btn-sm">View all</a>
+              </div>
+              <div id="upcoming-assignments-list"></div>
+            </section>
+
+          </div>
+
+          <!-- RIGHT COLUMN -->
+          <div class="dashboard-col-side">
+
+            <section class="card animate-in" style="margin-bottom: var(--space-5);">
+              <div class="card-header">
+                <span class="card-title">Attendance</span>
+              </div>
+              <div class="attendance-ring-wrap">
+                <svg viewBox="0 0 120 120" class="attendance-ring">
+                  <circle cx="60" cy="60" r="52" class="ring-track" />
+                  <circle cx="60" cy="60" r="52" class="ring-fill" id="attendance-ring-fill" />
+                </svg>
+                <div class="attendance-ring-label">
+                  <span id="attendance-ring-value">0%</span>
+                  <small>Overall</small>
+                </div>
+              </div>
+            </section>
+
+            <section class="card animate-in" style="margin-bottom: var(--space-5);">
+              <div class="card-header">
+                <span class="card-title">Today's Classes</span>
+              </div>
+              <div id="todays-classes-list"></div>
+            </section>
+
+            <section class="card animate-in">
+              <div class="card-header">
+                <span class="card-title">Recent Activity</span>
+              </div>
+              <div id="recent-activity-list"></div>
+            </section>
+
+          </div>
+        </div>
+
+        <!-- QUICK ACTIONS -->
+        <section class="quick-actions animate-in">
+          <a href="pages/timetable.html" class="btn btn-secondary"><i class="fa-solid fa-table-cells"></i> View Timetable</a>
+          <a href="pages/assignments.html" class="btn btn-secondary"><i class="fa-solid fa-list-check"></i> Check Assignments</a>
+          <a href="pages/attendance.html" class="btn btn-secondary"><i class="fa-solid fa-calendar-check"></i> View Attendance</a>
+          <a href="pages/academics.html" class="btn btn-secondary"><i class="fa-solid fa-graduation-cap"></i> View Grades</a>
+        </section>
+
       </main>
     </div>
   </div>
 
   <script src="js/storage.js"></script>
+  <script src="js/data.js"></script>
   <script src="js/theme.js"></script>
   <script src="js/navigation.js"></script>
+  <script src="js/notifications.js"></script>
+  <script src="js/dashboard.js"></script>
 </body>
 </html>
