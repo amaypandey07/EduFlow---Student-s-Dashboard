@@ -1,0 +1,112 @@
+/* ==========================================================================
+   VARIABLES.CSS
+   Purpose: Single source of truth for the design system.
+   Why CSS variables (custom properties) instead of hardcoding hex codes
+   everywhere? Because "change the primary color" should be a ONE-LINE
+   edit, not a find-and-replace across 12 files. This is the same reason
+   design tokens exist in every real design system (Material, Tailwind, etc).
+
+   Theme switching mechanism: we set data-theme="dark" on the <html> tag
+   via JS (see theme.js). The [data-theme="dark"] selector below overrides
+   the :root values. Every component uses var(--something) — never a raw
+   hex code — so the ENTIRE app re-themes instantly with zero JS re-render.
+   ========================================================================== */
+
+:root {
+  /* ---- Brand ---- */
+  --primary: #6366f1;        /* indigo — modern SaaS feel, not generic blue */
+  --primary-dark: #4f46e5;
+  --primary-light: #eef2ff;
+
+  /* ---- Surfaces (light mode) ---- */
+  --background: #f8fafc;
+  --surface: #ffffff;
+  --surface-hover: #f1f5f9;
+  --border: #e2e8f0;
+
+  /* ---- Text (light mode) ---- */
+  --text-primary: #0f172a;
+  --text-secondary: #64748b;
+  --text-tertiary: #94a3b8;
+
+  /* ---- Semantic status colors ---- */
+  --success: #22c55e;
+  --success-light: #dcfce7;
+  --warning: #f59e0b;
+  --warning-light: #fef3c7;
+  --danger: #ef4444;
+  --danger-light: #fee2e2;
+
+  /* ---- Elevation (shadows) ---- */
+  --shadow-sm: 0 1px 2px rgba(15, 23, 42, 0.04);
+  --shadow-md: 0 4px 12px rgba(15, 23, 42, 0.08);
+  --shadow-lg: 0 12px 24px rgba(15, 23, 42, 0.12);
+
+  /* ---- Spacing scale (4px base unit — industry-standard rhythm) ---- */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 20px;
+  --space-6: 24px;
+  --space-8: 32px;
+  --space-10: 40px;
+  --space-12: 48px;
+  --space-16: 64px;
+
+  /* ---- Radius ---- */
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 16px;
+  --radius-full: 9999px;
+
+  /* ---- Typography ---- */
+  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --text-xs: 12px;
+  --text-sm: 13px;
+  --text-base: 14px;
+  --text-md: 16px;
+  --text-lg: 18px;
+  --text-xl: 22px;
+  --text-2xl: 28px;
+  --text-3xl: 36px;
+
+  /* ---- Motion ---- */
+  --transition-fast: 150ms ease;
+  --transition-base: 250ms ease;
+  --transition-slow: 400ms cubic-bezier(0.4, 0, 0.2, 1);
+
+  /* ---- Layout ---- */
+  --sidebar-width: 260px;
+  --sidebar-width-collapsed: 76px;
+  --header-height: 72px;
+}
+
+/* ---- DARK MODE OVERRIDES ---- */
+/* Only the values that actually change need to be redeclared.
+   Everything else (spacing, radius, font sizes) stays identical —
+   dark mode is a color-scheme change, not a layout change. */
+[data-theme='dark'] {
+  --background: #0f172a;
+  --surface: #1e293b;
+  --surface-hover: #273549;
+  --border: #334155;
+
+  --text-primary: #f1f5f9;
+  --text-secondary: #94a3b8;
+  --text-tertiary: #64748b;
+
+  --primary-light: #312e81;
+
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.2);
+  --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.3);
+  --shadow-lg: 0 12px 24px rgba(0, 0, 0, 0.4);
+}
+
+body {
+  font-family: var(--font-sans);
+  background: var(--background);
+  color: var(--text-primary);
+  font-size: var(--text-base);
+  transition: background var(--transition-base), color var(--transition-base);
+}
