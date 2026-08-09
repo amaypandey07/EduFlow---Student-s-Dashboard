@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Profile · EduFlow</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+
+  <link rel="stylesheet" href="../css/reset.css" />
+  <link rel="stylesheet" href="../css/variables.css" />
+  <link rel="stylesheet" href="../css/layout.css" />
+  <link rel="stylesheet" href="../css/components.css" />
+  <link rel="stylesheet" href="../css/profile.css" />
+</head>
+<body>
+
+  <div class="app-shell">
+
+    <aside class="sidebar">
+      <div class="sidebar-brand">
+        <div class="sidebar-brand-mark">E</div>
+        <span class="sidebar-brand-name">EduFlow</span>
+      </div>
+
+      <nav class="sidebar-nav">
+        <a href="../index.html" class="sidebar-link" data-page="index.html">
+          <i class="fa-solid fa-grip"></i><span>Dashboard</span>
+        </a>
+        <a href="academics.html" class="sidebar-link" data-page="academics.html">
+          <i class="fa-solid fa-book-open"></i><span>Academics</span>
+        </a>
+        <a href="attendance.html" class="sidebar-link" data-page="attendance.html">
+          <i class="fa-solid fa-calendar-check"></i><span>Attendance</span>
+        </a>
+        <a href="assignments.html" class="sidebar-link" data-page="assignments.html">
+          <i class="fa-solid fa-list-check"></i><span>Assignments</span>
+        </a>
+        <a href="timetable.html" class="sidebar-link" data-page="timetable.html">
+          <i class="fa-solid fa-table-cells"></i><span>Timetable</span>
+        </a>
+        <a href="profile.html" class="sidebar-link" data-page="profile.html">
+          <i class="fa-solid fa-user"></i><span>Profile</span>
+        </a>
+      </nav>
+
+      <div class="sidebar-footer">
+        <button class="sidebar-toggle" data-sidebar-toggle aria-label="Collapse sidebar">
+          <i class="fa-solid fa-angles-left"></i>
+        </button>
+      </div>
+    </aside>
+
+    <div class="sidebar-overlay" data-mobile-overlay></div>
+
+    <div>
+      <header class="header">
+        <div style="display:flex; align-items:center; gap: var(--space-4);">
+          <button class="mobile-menu-btn icon-btn" data-mobile-menu aria-label="Open menu">
+            <i class="fa-solid fa-bars"></i>
+          </button>
+          <div class="header-greeting">
+            <h1>Profile</h1>
+            <p>Your personal and academic details.</p>
+          </div>
+        </div>
+
+        <div class="header-actions">
+          <button class="icon-btn" data-theme-toggle aria-label="Toggle theme">
+            <i class="fa-solid fa-moon"></i>
+          </button>
+          <div class="avatar" title="Amay Verma">AV</div>
+        </div>
+      </header>
+
+      <main class="main-content">
+
+        <section class="card profile-card">
+          <div class="profile-header">
+            <div class="profile-avatar-lg" id="profile-avatar">AV</div>
+            <div>
+              <div class="profile-name" id="profile-name">Amay Verma</div>
+              <div class="profile-roll" id="profile-roll">CS21B045</div>
+            </div>
+            <button class="btn btn-secondary" id="edit-profile-btn" style="margin-left: auto;">
+              <i class="fa-solid fa-pen"></i> Edit Profile
+            </button>
+          </div>
+
+          <!-- READ-ONLY VIEW -->
+          <div class="profile-details" id="profile-details-view">
+            <div class="profile-detail-row">
+              <span class="profile-detail-label">Branch</span>
+              <span class="profile-detail-value" id="detail-branch">—</span>
+            </div>
+            <div class="profile-detail-row">
+              <span class="profile-detail-label">Semester</span>
+              <span class="profile-detail-value" id="detail-semester">—</span>
+            </div>
+            <div class="profile-detail-row">
+              <span class="profile-detail-label">Email</span>
+              <span class="profile-detail-value" id="detail-email">—</span>
+            </div>
+            <div class="profile-detail-row">
+              <span class="profile-detail-label">College</span>
+              <span class="profile-detail-value" id="detail-college">—</span>
+            </div>
+          </div>
+
+          <!-- EDIT FORM (hidden by default, shown via JS) -->
+          <form class="profile-details" id="profile-edit-form" style="display:none;">
+            <div class="form-group">
+              <label class="form-label" for="edit-name">Full Name</label>
+              <input type="text" id="edit-name" name="name" class="form-input" required />
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="edit-branch">Branch</label>
+              <input type="text" id="edit-branch" name="branch" class="form-input" required />
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="edit-semester">Semester</label>
+              <input type="text" id="edit-semester" name="semester" class="form-input" required />
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="edit-email">Email</label>
+              <input type="email" id="edit-email" name="email" class="form-input" required />
+            </div>
+            <div style="display:flex; gap: var(--space-3); grid-column: 1 / -1;">
+              <button type="submit" class="btn btn-primary">Save Changes</button>
+              <button type="button" class="btn btn-secondary" id="cancel-edit-btn">Cancel</button>
+            </div>
+          </form>
+        </section>
+
+        <!-- Academic stats summary -->
+        <section class="grid grid-cols-3" style="margin-top: var(--space-6);">
+          <div class="card stat-card">
+            <div class="stat-card-icon" style="background: var(--primary-light); color: var(--primary);">
+              <i class="fa-solid fa-star"></i>
+            </div>
+            <div class="stat-card-value">8.4</div>
+            <div class="stat-card-label">CGPA</div>
+          </div>
+          <div class="card stat-card">
+            <div class="stat-card-icon" style="background: var(--success-light); color: var(--success);">
+              <i class="fa-solid fa-calendar-check"></i>
+            </div>
+            <div class="stat-card-value">86%</div>
+            <div class="stat-card-label">Attendance</div>
+          </div>
+          <div class="card stat-card">
+            <div class="stat-card-icon" style="background: var(--warning-light); color: var(--warning);">
+              <i class="fa-solid fa-book"></i>
+            </div>
+            <div class="stat-card-value">6</div>
+            <div class="stat-card-label">Subjects Enrolled</div>
+          </div>
+        </section>
+
+      </main>
+    </div>
+  </div>
+
+  <script src="../js/storage.js"></script>
+  <script src="../js/data.js"></script>
+  <script src="../js/theme.js"></script>
+  <script src="../js/navigation.js"></script>
+  <script src="../js/notifications.js"></script>
+  <script src="../js/profile.js"></script>
+</body>
+</html>

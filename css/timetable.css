@@ -1,0 +1,81 @@
+/* ==========================================================================
+   TIMETABLE.CSS — page-specific styles for pages/timetable.html only.
+   ========================================================================== */
+
+/* ---- Desktop table ---- */
+.timetable-table th,
+.timetable-table td {
+  padding: var(--space-3);
+  text-align: left;
+  border-bottom: 1px solid var(--border);
+  vertical-align: top;
+}
+
+.timetable-table th {
+  font-size: var(--text-xs);
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  color: var(--text-secondary);
+  font-weight: 600;
+}
+
+.timetable-time {
+  font-size: var(--text-xs);
+  color: var(--text-secondary);
+  white-space: nowrap;
+  font-weight: 600;
+}
+
+.timetable-cell {
+  background: var(--primary-light);
+  border-radius: var(--radius-md);
+  padding: var(--space-2) var(--space-3);
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.timetable-cell strong {
+  font-size: var(--text-xs);
+  color: var(--primary);
+}
+
+.timetable-cell span {
+  font-size: 11px;
+  color: var(--text-secondary);
+}
+
+/* ---- Mobile day cards ---- */
+.timetable-day-card {
+  margin-bottom: var(--space-4);
+}
+
+.timetable-mobile-slot {
+  display: flex;
+  gap: var(--space-3);
+  padding: var(--space-3) 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.timetable-mobile-slot:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+.timetable-mobile-time {
+  font-size: var(--text-xs);
+  color: var(--text-secondary);
+  white-space: nowrap;
+  min-width: 90px;
+  font-weight: 600;
+}
+
+.timetable-mobile-slot strong {
+  display: block;
+  font-size: var(--text-sm);
+}
+
+.timetable-mobile-slot span {
+  font-size: var(--text-xs);
+  color: var(--text-secondary);
+}
