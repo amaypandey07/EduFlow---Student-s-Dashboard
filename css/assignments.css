@@ -1,0 +1,113 @@
+/* ==========================================================================
+   ASSIGNMENTS.CSS — page-specific styles for pages/assignments.html only.
+   ========================================================================== */
+
+.assignments-toolbar {
+  display: flex;
+  gap: var(--space-3);
+  margin-bottom: var(--space-6);
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.search-box {
+  position: relative;
+  flex: 1;
+  min-width: 220px;
+}
+
+.search-box i {
+  position: absolute;
+  left: var(--space-4);
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--text-tertiary);
+  font-size: var(--text-sm);
+}
+
+.search-box input {
+  padding-left: var(--space-10);
+}
+
+.assignments-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: var(--space-4);
+}
+
+.assignment-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: var(--space-5);
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-3);
+  transition: box-shadow var(--transition-base);
+}
+
+.assignment-card:hover {
+  box-shadow: var(--shadow-md);
+}
+
+.assignment-card.is-completed {
+  opacity: 0.55;
+}
+
+.assignment-card.is-completed .assignment-card-title {
+  text-decoration: line-through;
+}
+
+.check-btn {
+  font-size: 20px;
+  color: var(--text-tertiary);
+  flex-shrink: 0;
+  margin-top: 2px;
+  transition: color var(--transition-fast), transform var(--transition-fast);
+}
+
+.check-btn:hover {
+  transform: scale(1.1);
+}
+
+.assignment-card.is-completed .check-btn {
+  color: var(--success);
+}
+
+.assignment-card-body {
+  flex: 1;
+  min-width: 0; /* allows text-overflow ellipsis to actually work in a flex child */
+}
+
+.assignment-card-title {
+  font-weight: 600;
+  font-size: var(--text-sm);
+  margin-bottom: var(--space-1);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.assignment-card-meta {
+  font-size: var(--text-xs);
+  color: var(--text-secondary);
+  display: flex;
+  gap: var(--space-2);
+}
+
+.assignment-card-actions {
+  display: flex;
+  gap: var(--space-1);
+  flex-shrink: 0;
+}
+
+@media (max-width: 576px) {
+  .assignments-toolbar {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .assignments-grid {
+    grid-template-columns: 1fr;
+  }
+}
