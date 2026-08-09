@@ -1,0 +1,77 @@
+/* ==========================================================================
+   ATTENDANCE.CSS — page-specific styles for pages/attendance.html only.
+   ========================================================================== */
+
+.overall-attendance {
+  display: flex;
+  align-items: center;
+  gap: var(--space-8);
+}
+
+.overall-attendance-value {
+  font-size: var(--text-3xl);
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.overall-attendance-label {
+  color: var(--text-secondary);
+  font-size: var(--text-sm);
+  margin-top: 2px;
+}
+
+.overall-attendance-bar {
+  flex: 1;
+}
+
+.attendance-row {
+  padding: var(--space-4) 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.attendance-row:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+.attendance-row:first-child {
+  padding-top: 0;
+}
+
+.attendance-row-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: var(--space-2);
+}
+
+.attendance-row-name {
+  font-weight: 600;
+  font-size: var(--text-sm);
+}
+
+.attendance-row-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: var(--space-2);
+  font-size: var(--text-xs);
+  color: var(--text-secondary);
+}
+
+.attendance-row-percent {
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+@media (max-width: 576px) {
+  .overall-attendance {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--space-4);
+  }
+
+  .overall-attendance-bar {
+    width: 100%;
+  }
+}

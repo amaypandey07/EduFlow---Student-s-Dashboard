@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Academics · EduFlow</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+
+  <!-- Note the ../ prefix: this file lives inside pages/, so every
+       path must go UP one level first before it can find css/ -->
+  <link rel="stylesheet" href="../css/reset.css" />
+  <link rel="stylesheet" href="../css/variables.css" />
+  <link rel="stylesheet" href="../css/layout.css" />
+  <link rel="stylesheet" href="../css/components.css" />
+  <link rel="stylesheet" href="../css/academics.css" />
+</head>
+<body>
+
+  <div class="app-shell">
+
+    <!-- ============ SIDEBAR ============ -->
+    <aside class="sidebar">
+      <div class="sidebar-brand">
+        <div class="sidebar-brand-mark">E</div>
+        <span class="sidebar-brand-name">EduFlow</span>
+      </div>
+
+      <nav class="sidebar-nav">
+        <a href="../index.html" class="sidebar-link" data-page="index.html">
+          <i class="fa-solid fa-grip"></i><span>Dashboard</span>
+        </a>
+        <a href="academics.html" class="sidebar-link" data-page="academics.html">
+          <i class="fa-solid fa-book-open"></i><span>Academics</span>
+        </a>
+        <a href="attendance.html" class="sidebar-link" data-page="attendance.html">
+          <i class="fa-solid fa-calendar-check"></i><span>Attendance</span>
+        </a>
+        <a href="assignments.html" class="sidebar-link" data-page="assignments.html">
+          <i class="fa-solid fa-list-check"></i><span>Assignments</span>
+        </a>
+        <a href="timetable.html" class="sidebar-link" data-page="timetable.html">
+          <i class="fa-solid fa-table-cells"></i><span>Timetable</span>
+        </a>
+        <a href="profile.html" class="sidebar-link" data-page="profile.html">
+          <i class="fa-solid fa-user"></i><span>Profile</span>
+        </a>
+      </nav>
+
+      <div class="sidebar-footer">
+        <button class="sidebar-toggle" data-sidebar-toggle aria-label="Collapse sidebar">
+          <i class="fa-solid fa-angles-left"></i>
+        </button>
+      </div>
+    </aside>
+
+    <div class="sidebar-overlay" data-mobile-overlay></div>
+
+    <!-- ============ MAIN ============ -->
+    <div>
+      <header class="header">
+        <div style="display:flex; align-items:center; gap: var(--space-4);">
+          <button class="mobile-menu-btn icon-btn" data-mobile-menu aria-label="Open menu">
+            <i class="fa-solid fa-bars"></i>
+          </button>
+          <div class="header-greeting">
+            <h1>Academics</h1>
+            <p>Your semester-wise academic performance.</p>
+          </div>
+        </div>
+
+        <div class="header-actions">
+          <button class="icon-btn" data-theme-toggle aria-label="Toggle theme">
+            <i class="fa-solid fa-moon"></i>
+          </button>
+          <div class="avatar" title="Amay Verma">AV</div>
+        </div>
+      </header>
+
+      <main class="main-content">
+
+        <!-- Semester selector -->
+        <div class="academics-toolbar">
+          <select class="form-select" id="semester-select" style="max-width: 220px;">
+            <option value="5" selected>5th Semester</option>
+            <option value="4">4th Semester</option>
+            <option value="3">3rd Semester</option>
+          </select>
+        </div>
+
+        <!-- CGPA / SGPA summary -->
+        <section class="grid grid-cols-3" style="margin-bottom: var(--space-6);">
+          <div class="card stat-card">
+            <div class="stat-card-icon" style="background: var(--primary-light); color: var(--primary);">
+              <i class="fa-solid fa-star"></i>
+            </div>
+            <div class="stat-card-value">8.4</div>
+            <div class="stat-card-label">Overall CGPA</div>
+          </div>
+          <div class="card stat-card">
+            <div class="stat-card-icon" style="background: var(--success-light); color: var(--success);">
+              <i class="fa-solid fa-chart-line"></i>
+            </div>
+            <div class="stat-card-value">8.7</div>
+            <div class="stat-card-label">Current SGPA</div>
+          </div>
+          <div class="card stat-card">
+            <div class="stat-card-icon" style="background: var(--warning-light); color: var(--warning);">
+              <i class="fa-solid fa-layer-group"></i>
+            </div>
+            <div class="stat-card-value">21</div>
+            <div class="stat-card-label">Total Credits</div>
+          </div>
+        </section>
+
+        <!-- Subject performance table -->
+        <section class="card">
+          <div class="card-header">
+            <span class="card-title">Subject-wise Performance</span>
+          </div>
+          <div id="subjects-table"></div>
+        </section>
+
+      </main>
+    </div>
+  </div>
+
+  <!-- Paths go up one level (../) to reach js/, same reasoning as css/ above -->
+  <script src="../js/storage.js"></script>
+  <script src="../js/data.js"></script>
+  <script src="../js/theme.js"></script>
+  <script src="../js/navigation.js"></script>
+  <script src="../js/academics.js"></script>
+</body>
+</html>
