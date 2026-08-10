@@ -31,18 +31,7 @@ JavaScript — no frameworks, no backend, no build tools.
 - **Fully responsive** — desktop, tablet, and mobile layouts
 - **Toast notifications**, modals, and micro-interactions throughout
 
-## 📸 Screenshots
 
-> _Add screenshots here before submission — a Dashboard (light mode),
-> Dashboard (dark mode), Assignments page, and Mobile view are enough
-> to show the range of the project._
-
-```text
-![Dashboard - Light Mode](screenshots/dashboard-light.png)
-![Dashboard - Dark Mode](screenshots/dashboard-dark.png)
-![Assignments Page](screenshots/assignments.png)
-![Mobile View](screenshots/mobile.png)
-```
 
 ## 🛠 Tech Stack
 
