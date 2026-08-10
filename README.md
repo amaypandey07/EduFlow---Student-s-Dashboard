@@ -15,6 +15,11 @@ Built as a college project to demonstrate frontend engineering
 fundamentals: semantic HTML, a CSS design system, and modular vanilla
 JavaScript — no frameworks, no backend, no build tools.
 
+> 🎓 **Preparing for a viva?** See [`VIVA-PREP.md`](./VIVA-PREP.md) for a
+> full walkthrough of every mechanism in this project — dark mode, the
+> assignment CRUD flow, event delegation, derived data, and more —
+> explained from first principles.
+
 ## ✨ Features
 
 - **Dashboard overview** — attendance ring, CGPA, pending assignments,
@@ -29,6 +34,19 @@ JavaScript — no frameworks, no backend, no build tools.
 - **Light / Dark mode** — persisted theme preference
 - **Fully responsive** — desktop, tablet, and mobile layouts
 - **Toast notifications**, modals, and micro-interactions throughout
+
+## 📸 Screenshots
+
+> _Add screenshots here before submission — a Dashboard (light mode),
+> Dashboard (dark mode), Assignments page, and Mobile view are enough
+> to show the range of the project._
+
+```text
+![Dashboard - Light Mode](screenshots/dashboard-light.png)
+![Dashboard - Dark Mode](screenshots/dashboard-dark.png)
+![Assignments Page](screenshots/assignments.png)
+![Mobile View](screenshots/mobile.png)
+```
 
 ## 🛠 Tech Stack
 
