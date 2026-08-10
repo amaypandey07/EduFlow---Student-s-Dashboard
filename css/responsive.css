@@ -1,0 +1,130 @@
+/* ==========================================================================
+   RESPONSIVE.CSS
+   Purpose: Breakpoint overrides. This file is loaded LAST in every HTML
+   file's <head> so its rules win over layout.css/components.css when
+   viewport width matches (CSS cascade: later rules of equal specificity
+   override earlier ones).
+
+   Approach: "redesign, don't just shrink" — per the project brief, the
+   sidebar doesn't just get narrower on mobile, it becomes an off-canvas
+   drawer. The timetable/attendance grids don't just wrap, they restructure
+   into stacked cards. This is what separates a genuinely responsive site
+   from one that just has a media query slapped on top.
+   ========================================================================== */
+
+/* ---- 1200px: tighten grid columns slightly ---- */
+@media (max-width: 1200px) {
+  .grid-cols-4 { grid-template-columns: repeat(2, 1fr); }
+}
+
+/* ---- 992px: sidebar auto-collapses to icon rail ---- */
+@media (max-width: 992px) {
+  .app-shell {
+    grid-template-columns: var(--sidebar-width-collapsed) 1fr;
+  }
+
+  .sidebar-brand-name,
+  .sidebar-link span {
+    display: none;
+  }
+
+  .grid-cols-3 { grid-template-columns: repeat(2, 1fr); }
+}
+
+/* ---- 768px: sidebar becomes an off-canvas mobile drawer ---- */
+@media (max-width: 768px) {
+  .app-shell {
+    grid-template-columns: 1fr;
+  }
+
+  .sidebar {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 280px;
+    transform: translateX(-100%);
+    transition: transform var(--transition-base);
+    z-index: 50;
+  }
+
+  .sidebar.mobile-open {
+    transform: translateX(0);
+  }
+
+  .sidebar-brand-name,
+  .sidebar-link span {
+    display: inline; /* full labels return inside the drawer, plenty of width there */
+  }
+
+  .sidebar-overlay.active {
+    display: block;
+  }
+
+  .mobile-menu-btn {
+    display: flex;
+  }
+
+  .header {
+    padding: 0 var(--space-4);
+  }
+
+  .header-greeting h1 {
+    font-size: var(--text-lg);
+  }
+
+  .main-content {
+    padding: var(--space-4);
+  }
+
+  .grid-cols-2,
+  .grid-cols-3,
+  .grid-cols-4 {
+    grid-template-columns: 1fr;
+  }
+
+  .modal {
+    max-width: 92vw;
+    padding: var(--space-5);
+  }
+
+  /* assignments grid: the desktop auto-fill/minmax pattern can still
+     squeeze in 2 narrow columns around 480-768px, which looks cramped —
+     force a single column below the drawer breakpoint instead */
+  .assignments-grid {
+    grid-template-columns: 1fr;
+  }
+
+  /* timetable: table -> stacked cards (handled structurally in timetable.js,
+     this just ensures the card wrapper styles apply) */
+  .timetable-table {
+    display: none;
+  }
+
+  .timetable-cards {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-3);
+  }
+}
+
+/* ---- 576px: final tightening for small phones ---- */
+@media (max-width: 576px) {
+  .header-actions {
+    gap: var(--space-2);
+  }
+
+  .card {
+    padding: var(--space-4);
+  }
+
+  .stat-card-value {
+    font-size: var(--text-xl);
+  }
+}
+
+/* ---- Desktop default: hide mobile-only structures ---- */
+@media (min-width: 769px) {
+  .timetable-cards {
+    display: none;
+  }
+}
