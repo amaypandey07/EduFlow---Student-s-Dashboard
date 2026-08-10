@@ -1,0 +1,68 @@
+/* ==========================================================================
+   INTERACTIONS.CSS
+   Purpose: Micro-interaction polish shared across ALL pages. Kept separate
+   from components.css because this file is purely about MOTION/FEEDBACK,
+   not structural styling — a good example of splitting a file by concern
+   even when it could technically live inside an existing file.
+   ========================================================================== */
+
+/* ---- Theme toggle: icon rotates on click for tactile feedback ---- */
+[data-theme-toggle] i {
+  transition: transform var(--transition-slow);
+}
+
+[data-theme-toggle]:active i {
+  transform: rotate(180deg);
+}
+
+/* ---- Sidebar links: subtle press feedback ---- */
+.sidebar-link:active {
+  transform: scale(0.98);
+}
+
+/* ---- Form inputs: focus ring for accessibility + polish ---- */
+.form-input:focus,
+.form-select:focus,
+.form-textarea:focus {
+  box-shadow: 0 0 0 3px var(--primary-light);
+}
+
+/* ---- Staggered entrance: applies animate-in with an automatic delay
+   based on position, so a grid of cards cascades in rather than
+   popping in all at once. Add class "stagger-grid" to any container
+   whose direct children should cascade. ---- */
+.stagger-grid > * {
+  opacity: 0;
+  animation: fade-slide-up var(--transition-slow) both;
+}
+
+.stagger-grid > *:nth-child(1) { animation-delay: 0ms; }
+.stagger-grid > *:nth-child(2) { animation-delay: 60ms; }
+.stagger-grid > *:nth-child(3) { animation-delay: 120ms; }
+.stagger-grid > *:nth-child(4) { animation-delay: 180ms; }
+.stagger-grid > *:nth-child(5) { animation-delay: 240ms; }
+.stagger-grid > *:nth-child(6) { animation-delay: 300ms; }
+
+/* ---- Assignment card: gentle scale on delete for a "removed" feel ---- */
+.assignment-card {
+  animation: fade-slide-up var(--transition-slow) both;
+}
+
+/* ---- Avatar: subtle ring on hover, signals it's interactive ---- */
+.avatar {
+  transition: box-shadow var(--transition-fast);
+}
+
+.avatar:hover {
+  box-shadow: 0 0 0 3px var(--primary-light);
+}
+
+/* ---- Badge: tiny pop-in when status changes (e.g. attendance warning) ---- */
+@keyframes badge-pop {
+  0% { transform: scale(0.85); opacity: 0; }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+.badge {
+  animation: badge-pop 300ms ease;
+}
