@@ -15,10 +15,6 @@ Built as a college project to demonstrate frontend engineering
 fundamentals: semantic HTML, a CSS design system, and modular vanilla
 JavaScript — no frameworks, no backend, no build tools.
 
-> 🎓 **Preparing for a viva?** See [`VIVA-PREP.md`](./VIVA-PREP.md) for a
-> full walkthrough of every mechanism in this project — dark mode, the
-> assignment CRUD flow, event delegation, derived data, and more —
-> explained from first principles.
 
 ## ✨ Features
 
